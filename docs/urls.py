@@ -11,10 +11,10 @@ router.register('', viewsets.DocViewset)
 
 app_name = 'docs'
 urlpatterns = [
-    path('', include(router.urls)),
+    path('v1/', include(router.urls)),
 
-    path('', views.DocList.as_view()),
-    path('/<int:pk>/', views.DocDetail.as_view()),
+    path('v2/', views.DocList.as_view()),
+    path('v2/<int:pk>/', views.DocDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
