@@ -3,7 +3,8 @@ from rest_framework import serializers
 from .models import Doc
 
 
-class DocSerializer(serializers.HyperlinkedModelSerializer):
+class DocSerializer(serializers.ModelSerializer):
+    url = serializers.CharField(source='get_absolute_url', read_only=True)
 
     class Meta:
         model = Doc
