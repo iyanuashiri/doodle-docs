@@ -11,4 +11,4 @@ class DocViewset(viewsets.ModelViewSet):
 
     queryset = Doc.objects.all()
     serializer_class = DocSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
