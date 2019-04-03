@@ -21,6 +21,6 @@ urlpatterns = [
     path('v2/', views.DocList.as_view()),
     path('v2/<int:pk>/', views.DocDetail.as_view(), name='detail'),
     path('v2/<user_id>/share/<doc_id>/', views.DocShare.as_view()),
+    path('v2/shared_docs/', views.DocSharedList.as_view()),
 ]
 
-# urlpatterns = format_suffix_patterns(urlpatterns)

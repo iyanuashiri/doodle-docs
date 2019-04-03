@@ -38,3 +38,15 @@ class DocShare(APIView):
         user = get_object_or_404(Account, user_id)
         user.doc_shared.add(doc)
         return Response({'shared': True})
+
+
+class DocSharedList(generics.ListAPIView):
+    """
+    List of all shared docs
+    """
+    serializer_class = DocSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get_queryset(self):
+        docs = Doc.objects.filter(authors_shared=self.request.user)
+        return docs
