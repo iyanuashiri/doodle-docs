@@ -28,6 +28,8 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+AUTH_USER_MODEL = 'accounts.Account'
+
 
 # Application definition
 
@@ -138,4 +140,11 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
+}
+
+
+DJOSER = {
+    'SERIALIZERS': {
+        'user': 'accounts.serializers.AccountSerializer'
+    },
 }
