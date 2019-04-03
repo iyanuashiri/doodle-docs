@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'djoser',
 
     'docs',
+    'accounts',
 ]
 
 MIDDLEWARE = [
