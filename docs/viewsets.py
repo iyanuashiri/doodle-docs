@@ -18,7 +18,6 @@ class DocViewset(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
-    @action(detail=True, methods=['post'])
     def shared_docs(self, request, *args, **kwargs):
         docs = self.get_queryset().filter(authors_shared=self.request.user)
         return Response(docs)
