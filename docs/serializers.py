@@ -4,6 +4,7 @@ from .models import Doc
 
 
 class DocSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedRelatedField(read_only=True, view_name='doc-detail')
     author = serializers.ReadOnlyField(source='author.email')
 
     class Meta:
