@@ -8,8 +8,9 @@ class AccountViewset(viewsets.ReadOnlyModelViewSet):
     """
     This endpoint provides list, detail actions for Account
     """
+    queryset = Account.objects.all()
     serializer_class = AccountSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     def get_queryset(self):
-        return Account.objects.filter(email=self.request.user)
+        return self.queryset.filter(email=self.request.user)
