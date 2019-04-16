@@ -14,7 +14,7 @@ router.register('', viewsets.AccountViewset)
 
 app_name = 'accounts'
 urlpatterns = [
-    path('accounts/', include(router.urls)),
+    path('v1/accounts/', include(router.urls)),
     path('schema/', schema_view),
 
     path('auth/', include('djoser.urls')),
