@@ -15,7 +15,7 @@ router.register('', viewsets.DocViewset)
 
 app_name = 'docs'
 urlpatterns = [
-    path('v1/', include(router.urls)),
+    path('v1/docs/', include(router.urls)),
     path('schema/', schema_view),
 
     path('v2/', views.DocList.as_view()),

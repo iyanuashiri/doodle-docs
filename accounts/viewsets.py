@@ -12,5 +12,5 @@ class AccountViewset(viewsets.ReadOnlyModelViewSet):
     serializer_class = AccountSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-    def get_queryset(self):
-        return self.queryset.filter(email=self.request.user)
+    # def get_queryset(self):
+    #     return self.queryset.filter(email=self.request.user)
