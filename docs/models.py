@@ -6,7 +6,7 @@ from django.shortcuts import reverse
 
 
 class Doc(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='notes')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='docs')
     title = models.CharField(max_length=255)
     body = models.TextField(max_length=40000)
     created_at = models.DateTimeField(auto_now_add=True)
