@@ -19,6 +19,10 @@ class DocList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Doc.objects.all()
 
+    def get_queryset(self):
+        docs = self.queryset.filter(author=self.request.user)
+        return docs
+
 
 class DocDetail(generics.RetrieveUpdateDestroyAPIView):
     """

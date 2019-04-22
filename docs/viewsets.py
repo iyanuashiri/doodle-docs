@@ -14,9 +14,13 @@ class DocViewset(viewsets.ModelViewSet):
     serializer_class = DocSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+    def get_queryset(self):
+        docs = self.queryset.filter(author=self.request.user)
+        return docs
+
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
     def shared_docs(self, request, *args, **kwargs):
-        docs = self.get_queryset().filter(authors_shared=self.request.user)
+        docs = self.get_query.filter(authors_shared=self.request.user)
         return Response(docs)
