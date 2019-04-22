@@ -40,6 +40,17 @@ class DocShare(APIView):
         return Response({'shared': True})
 
 
+class DocRemove(APIView):
+    """
+    Remove a doc instance from a shared user
+    """
+    def put(self, request, user_id, doc_id):
+        doc = get_object_or_404(Doc, pk=doc_id)
+        user = get_object_or_404(Account, pk=user_id)
+        user.docs_shared.remove(doc)
+        return Response({'removed': True})
+
+
 class DocSharedList(generics.ListAPIView):
     """
     List of all shared docs

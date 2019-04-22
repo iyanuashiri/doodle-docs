@@ -1,7 +1,6 @@
 from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
-from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework.schemas import get_schema_view
 
 from . import viewsets, views
@@ -21,6 +20,6 @@ urlpatterns = [
     path('v2/', views.DocList.as_view()),
     path('v2/<int:pk>/', views.DocDetail.as_view()),
     path('v1/<user_id>/share/<doc_id>/', views.DocShare.as_view()),
+    path('v1/<user_id>/remove/<doc_id>/', views.DocRemove.as_view()),
     path('v1/v2/shared_docs/', views.DocSharedList.as_view()),
 ]
-
